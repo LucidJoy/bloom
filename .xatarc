@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Jyotirmoy-Karmakar-Joy-s-workspace-hcjg5k.us-east-1.xata.sh/db/bloom_db",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
