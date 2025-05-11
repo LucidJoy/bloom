@@ -1,4 +1,6 @@
 import Header from "@/components/Header";
+import VideoCard from "@/components/VideoCard";
+import { dummyCards } from "@/constants";
 import React from "react";
 
 const Page = () => {
@@ -7,6 +9,12 @@ const Page = () => {
       <Header title='All Videos' subHeader='Public Library' />
 
       <h1 className='text-2xl font-karla'>Welcome to Bloom</h1>
+
+      <section className='video-grid'>
+        {dummyCards.map((card) => (
+          <VideoCard {...card} key={card.id} />
+        ))}
+      </section>
     </main>
   );
 };
