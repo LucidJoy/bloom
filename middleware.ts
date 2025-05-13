@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { auth } from "./lib/auth";
 import { headers } from "next/headers";
+import aj from "./lib/arcjet";
+import { createMiddleware, detectBot, shield } from "@arcjet/next";
 
 export async function middleware(
   request: NextResponse,
@@ -16,6 +18,15 @@ export async function middleware(
 
   return NextResponse.next();
 }
+
+const validate = aj.withRule(shield({ mode: "LIVE" })).withRule(
+  detectBot({
+    mode: "LIVE",
+    allow: ["CATEGORY:SEARCH_ENGINE", "GOOGLE_CRAWLER"],
+  })
+);
+
+export default createMiddleware(validate);
 
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico|sign-in|assets).*)"],
