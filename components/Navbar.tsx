@@ -10,6 +10,8 @@ const user = {};
 
 const Navbar = () => {
   const router = useRouter();
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
 
   return (
     <header className='navbar'>
@@ -26,9 +28,9 @@ const Navbar = () => {
 
         {user && (
           <figure>
-            <button onClick={() => router.push("/profile/1234")}>
+            <button onClick={() => router.push(`/profile/${user?.id}`)}>
               <Image
-                src={"/assets/images/dummy.jpg"}
+                src={user?.image || ""}
                 alt='user'
                 className='rounded-full aspect-square'
                 height={36}

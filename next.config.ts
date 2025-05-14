@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "bloom-joy.b-cdn.net",
+        hostname: "*",
         protocol: "https",
         port: "",
         pathname: "/**",

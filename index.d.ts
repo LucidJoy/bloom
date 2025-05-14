@@ -84,12 +84,13 @@ declare interface VideoCardProps {
 declare interface VideoDetailHeaderProps {
   title: string;
   createdAt: Date;
-  userImg: string | null | undefined;
+  userImg?: string | null | undefined;
   username?: string;
   videoId: string;
-  ownerId: string;
+  ownerId?: string;
   visibility: string;
   thumbnailUrl: string;
+  id: string;
 }
 
 declare interface VideoPlayerProps {
